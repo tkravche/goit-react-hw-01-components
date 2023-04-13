@@ -4,7 +4,7 @@ export const ProfileContainer = styled.div`
   width: 250px;
   height: 335px;
   text-align: center;
-  border-radius: ${p => p.theme.radii.normal};
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -19,9 +19,10 @@ export const ProfileDescription = styled.div`
 export const ProfileAvatar = styled.img`
   width: 100px;
   height: 100px;
-  overflow: hidden;
-  border-radius: ${p => p.theme.radii.round};
-  padding-top: ${p => p.theme.space[5]}px;
+  border-radius: 50%;
+  border: 2px solid grey;
+  padding: 5px;
+  margin-top: ${p => p.theme.space[5]}px;
 `;
 export const ProfileUserName = styled.p`
   padding-top: ${p => p.theme.space[5]}px;
@@ -49,7 +50,7 @@ export const StatsItem = styled.li`
   background-color: ${p => p.theme.colors.lightgrey};
   border: 1px solid #e4e9f0;
   cursor: pointer;
-  transition: background linear 0.5s;
+  transition: background-color linear 0.5s;
   :hover {
     background-color: ${p => p.theme.colors.grey};
   }

@@ -1,17 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ListItem, StatisticsList, Title, StatisticsSection } from './Statistics.styled';
+import {
+  ListItem,
+  StatisticsList,
+  Title,
+  StatisticsSection,
+  StatsLabel,
+  StatsQuantity,
+} from './Statistics.styled';
 
 export const Statistics = ({ title = null, stats }) => {
   return (
     <StatisticsSection>
-      <Title>{title ? title : ''}</Title>
+      {title && <Title>{title ? title : ''}</Title>}
       <StatisticsList>
         {stats.map(stats => {
           return (
-            <ListItem key = {stats.id}>
-              <span class="label">{stats.label}</span>
-              <span class="percentage">{stats.percentage}%</span>
+            <ListItem key={stats.id}>
+              <StatsLabel>{stats.label}</StatsLabel>
+              <StatsQuantity>{stats.percentage}%</StatsQuantity>
             </ListItem>
           );
         })}
@@ -22,5 +29,11 @@ export const Statistics = ({ title = null, stats }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.arrayOf.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
