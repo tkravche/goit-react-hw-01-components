@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import transactions from './transactions.json';
 import { Transaction } from './Transaction';
 import {
   StyledTableHead,
@@ -7,7 +6,7 @@ import {
   StyledTableBody,
 } from './TransactionHistory.styled';
 
-export const TransactionHistory = ({ type, amount, currency, id }) => {
+export const TransactionHistory = ({ items }) => {
   return (
     <StyledTable>
       <StyledTableHead>
@@ -18,14 +17,14 @@ export const TransactionHistory = ({ type, amount, currency, id }) => {
         </tr>
       </StyledTableHead>
       <StyledTableBody>
-        {transactions.map((transaction, index) => {
+        {items.map((item, index) => {
           return (
             <Transaction
-              key={transaction.id}
+              key={item.id}
               index={index}
-              type={transaction.type}
-              amount={transaction.amount}
-              currency={transaction.currency}
+              type={item.type}
+              amount={item.amount}
+              currency={item.currency}
             />
           );
         })}

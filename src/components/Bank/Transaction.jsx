@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { StyledTableData, StyledTableRow } from './Transaction.styled';
 export const Transaction = ({ type, amount, currency, index }) => {
- 
   return (
     <StyledTableRow index={index}>
       <StyledTableData>{type}</StyledTableData>
